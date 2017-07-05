@@ -29,7 +29,7 @@ public class Background {
         }
     }
     
-    private final int STARS_COUNT = 200;
+    private final int STARS_COUNT = 20000;
     private Star[] stars;
     
     public Background () {
@@ -44,6 +44,7 @@ public class Background {
     public void render (SpriteBatch batch) {
         batch.draw(texture, 0, 0);
         for (int i = 0; i < STARS_COUNT; i++) {
+            batch.setColor((stars[i].position.x + i) / 1280.0f, (stars[i].position.y) / 720.0f, 1, 1);
             batch.draw(textureStar, stars[i].position.x, stars[i].position.y);
         }
     }
