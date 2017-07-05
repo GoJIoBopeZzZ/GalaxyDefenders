@@ -9,11 +9,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Game extends ApplicationAdapter {
 	SpriteBatch batch;
 	Background background;
+	Player player;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		background = new Background();
+		player = new Player();
 	}
 
 	@Override
@@ -23,11 +25,13 @@ public class Game extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		background.render(batch);
+		player.render(batch);
 		batch.end();
 	}
 	
 	public void update() {
 		background.update();
+		player.update();
 	}
 	
 	@Override
